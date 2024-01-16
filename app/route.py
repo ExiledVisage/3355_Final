@@ -23,16 +23,21 @@ def office_table_create_and_update():
 
 @app.route('/')
 def home():
-    #drop_table_users()
-    #connectionUser()
-    #insert_users()
-    #drop_vehicle_table()
-    #createVehicleDatabase()
-    #insert_vehicles()
-    office_names = get_office_names()     
+    drop_table_users()
+    connectionUser()
+    insert_users()
+
+    drop_vehicle_table()
+    createVehicleDatabase()
+    insert_vehicles()
+
+    drop_office_table()
+    connectionOffice()
+    insert_offices()
+    #office_names = get_office_names()     
     #insert_vehicles()  
     #office_table_create_and_update()    
-    return render_template('index.html',office_names=office_names)
+    return render_template('index.html')
 
 @app.route('/login')
 def login():

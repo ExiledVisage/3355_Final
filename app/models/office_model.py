@@ -120,7 +120,3 @@ def drop_office_table():
     
     connection.commit()
     connection.close()
-
-
-    connection.commit()
-    connection.close()
