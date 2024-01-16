@@ -23,17 +23,17 @@ def office_table_create_and_update():
 
 @app.route('/')
 def home():
-    drop_table_users()
-    connectionUser()
-    insert_users()
+    #drop_table_users()
+    #connectionUser()
+    #insert_users()
 
-    drop_vehicle_table()
-    createVehicleDatabase()
-    insert_vehicles()
+    #drop_vehicle_table()
+    #createVehicleDatabase()
+    #insert_vehicles()
 
-    drop_office_table()
-    connectionOffice()
-    insert_offices()
+    #drop_office_table()
+    #connectionOffice()
+    #insert_offices()
     office_names = get_office_names()     
     #insert_vehicles()  
     office_table_create_and_update()    

@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const form = document.getElementById('rentForm'); // Replace 'rentForm' with the actual ID of your form
   form.addEventListener('submit', function (event) {
     // Call your validation function before submitting the form
-    if (!validateForm() || !calculateRentDays()) {
+    if (!validateForm() || calculateRentDays()) {
       event.preventDefault(); // Prevent the form from submitting if validation fails
     }
   });
