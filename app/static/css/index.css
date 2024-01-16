@@ -1,0 +1,106 @@
+
+#map {
+    height: 400px;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    border: 1px solid red;
+    width: 1000px;
+    height: 150px;
+    padding: 0;
+    margin: 0;
+    margin-top: 10px;
+    margin-left: 100px;
+    
+    
+}
+
+.Map_Info_Container{
+    flex: 1;           
+    border: 1px solid black;
+    box-sizing: border-box; 
+    padding: 0;   
+}
+
+.Map_Container{
+    flex: 1;           
+    border: 1px solid black;
+    box-sizing: border-box; 
+    padding: 0;   
+}
+
+.Login_header{
+    box-sizing: border-box; 
+    padding: 0;
+    background-color: red;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.Search_result_header{
+    background-color: rgb(32, 32, 32);
+    height: 100px;
+    box-sizing: border-box; 
+    padding: 0;
+}
+
+.Rent_Car_Button_AlreadyChecked_header{
+    background-color: rgb(32, 32, 32);            
+    box-sizing: border-box; 
+    padding: 0;
+    height: 80px;
+}
+
+.Rent_Car_Button_AlreadyChecked_box{
+    background-color: rgb(112, 112, 112);            
+    box-sizing: border-box; 
+    padding: 0;
+    margin-left: 50px;
+    width: 300px;
+    height: 80px;
+    display: flex;
+    align-items: center; /* Center items vertically */
+    justify-content: center; /* Center items horizontally */
+}
+
+.Rent_Car_header{
+    background-color: rgb(112, 112, 112);               
+    box-sizing: border-box; 
+    padding: 0;
+    height: 120px;
+    display: flex;
+    align-items: center; /* Center items vertically */
+    justify-content: center; /* Center items horizontally */
+}
+
+.company-name {
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    font-family: 'Arial', sans-serif;
+}
+
+.radio-label {
+color: red; /* Color for the label text */
+font-weight: bold;
+margin-left: 10px; /* Optional: Add space between box and text */
+}
+
+.login-text {
+    color: white;
+    font-size: 20px;
+    margin-left: auto; /* Pushes "Login" to the right */
+}
+
+.label-box {
+    border: 2px solid transparent; /* Invisible border */
+    border-left-color: red; /* Red color for the left border */
+    padding: 10px; /* Adjust padding as needed */
+    display: inline-block; /* Ensure the label stays inline */
+    margin-bottom: 10px; /* Optional: Add spacing after the label */
+    color: white;
+}

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .car-showcase {
+            display: flex;
+            flex-direction: row;
+            align-items: center;  /* Center items horizontally within the container */
+        }
+    
+        .car-card {
+            margin-bottom: 20px; 
+            margin-left: 50px;
+            margin-top: 50px; /* Adjust the spacing between cards */
+            text-align: center;
+            border: 1px solid #ddd;  /* Add a 1px solid border with light gray color */
+            padding: 20px;  /* Add padding to the card */
+            border-radius: 10px;  /* Add border radius for rounded corners */
+            border-color: black;
+            
+        }
+    
+        .car-details {
+            text-align: left;
+        }
+    
+        .car-image {
+            width: 150px;  /* Set the image width */
+            height: auto;  /* Maintain the aspect ratio */
+            margin-bottom: 10px;  /* Adjust the spacing between the image and details */
+        }
+    </style>
+
+</head>
+<body>
+    <h1>Filtered Cars</h1>
+
+    <form action="{{ url_for('filter_cars_form') }}" method="POST">
+        <label for="carTypeFilter">Car Type:</label>
+        <select id="carTypeFilter" name="carTypeFilter">
+            <option value="all">All</option>
+            <option value="EKONOMİK">EKONOMİK</option>
+            <option value="KONFOR">KONFOR</option>
+            <option value="PRESTİJ">PRESTİJ</option>
+            <option value="PREMIUM">PREMIUM</option>
+            <option value="LÜKS">LÜKS</option>
+        </select>
+
+        <label for="rentSortFilter">Rent Price:</label>
+        <select id="rentSortFilter" name="rentSortFilter">
+            <option value="asc">Least to Most Expensive</option>
+            <option value="desc">Most to Least Expensive</option>
+        </select>
+
+        <label for="transmissionFilter">Transmission:</label>
+        <select id="transmissionFilter" name="transmissionFilter">
+            <option value="all">All</option>
+            <option value="Manuel">Manuel</option>
+            <option value="Otomatik">Otomatik</option>
+        </select>
+        <input type="submit" value="Apply Filters">
+    </form>
+
+    {% if cars %}
+    <div class="car-showcase">
+        {% for car in cars %}
+            <div class="car-card">
+                <img src="data:image/jpeg;base64,{{ car[9] }}" alt="{{ car[1] }} {{ car[2] }}" class="car-image">
+                <div class="car-details">
+                    <h3>{{ car[1] }} {{ car[2] }}</h3>
+                    <p><strong>Transmission:</strong> {{ car[3] }}</p>
+                    <p><strong>Fuel Type:</strong> {{ car[4] }}</p>
+                    <p><strong>Deposit Price:</strong> {{ car[5] }}</p>
+                    <p><strong>Daily Rent Price:</strong> {{ car[6] }}</p>
+                    <p><strong>Mileage:</strong> {{ car[7] }}</p>
+                    <p><strong>Age:</strong> {{ car[8] }}</p>
+                    <p><strong>Car Type:</strong> {{ car[10] }}</p>
+                    <p><strong>Office ID:</strong> {{ car[11] }}</p>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% else %}
+    <p>No cars found for the selected office.</p>
+{% endif %}
+</body>
+</html>

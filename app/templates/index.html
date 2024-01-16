@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDvVgkgvhFDwZ8JwDLLEGOnCG8UAZF4DMI&libraries=places"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+
+</head>
+
+<body>
+    <header style="background-color: red; display: flex; flex-direction: column; width: auto;">
+
+        <div class="Login_header"> 
+            <div class="company-name">AVIS</div>
+            <div class="Login_header"> 
+                {% if 'user_name' in session %}
+                    <div class="login-text">Hello {{ session['user_name'] }}!</div>
+                {% else %}
+                    <div class="login-text"><a href="/login">Üye girişi</a></div>
+                {% endif %}
+            </div>
+        </div>
+
+        <div class="Rent_Car_Button_AlreadyChecked_header">
+            <div class="Rent_Car_Button_AlreadyChecked_box">
+                <label class="radio-label">
+                  <input type="radio" name="carRent" checked>
+                  Rent a car
+                </label>
+            </div>    
+        </div> 
+
+        <div class="Rent_Car_header">
+            <form  action="{{ url_for('filter_cars') }}" method="POST" onsubmit="return calculateRentDays()" style=" margin-left: 20px;">
+
+              <label for="pickupOffice" class="label-box">Teslim <br> Alım <br> Ofisi:</label>
+
+              <select id="pickupOffice" name="pickupOffice">
+                {% for office in office_names %}
+                <option value="{{ office }}">{{ office }}</option>
+                {% endfor %}
+              </select>
+
+              <label for="pickupDate" class="label-box" >Alış <br> Tarihi:</label>
+              <input type="date" id="pickupDate" name="pickupDate">
+          
+              <label for="pickupTime">Pickup Time:</label>
+              <input type="time" id="pickupTime" name="pickupTime">
+          
+              <label for="returnOffice" class="label-box">İade <br> Ofisi:</label>
+              <select id="returnOffice" name="returnOffice">
+                {% for office in office_names %}
+                <option value="{{ office }}">{{ office }}</option>
+                {% endfor %}
+              </select>
+          
+              <label for="returnDate" class="label-box">İade <br> Tarihi:</label>
+              <input type="date" id="returnDate" name="pickupDate">
+          
+              <label for="returnTime">Return Time:</label>
+              <input type="time" id="returnTime" name="pickupTime">
+              <input type="submit" value="Search">
+            </form>
+        </div> 
+
+        <div class="Search_result_header">
+            <h1>Search_result_header</h1>
+        </div> 
+
+    </header>
+
+    <div class="container">
+        <div class="Map_Info_Container">
+            <h2>OFFICE INFORMATION PART</h2>
+        </div>
+        <div class="Map_Container" id="map">
+
+        </div>
+                    
+    </div>
+
+    <script src="{{ url_for('static', filename='js/show_places.js') }}"></script>
+</body>
+
+</html>

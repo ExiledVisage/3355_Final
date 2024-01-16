@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="/app/static/css/register.css">
+    <script src=""></script>
+</head>
+<body>
+    <div class="container">
+        <div class="register-section">
+            <div class="title">
+                <h2>Register</h2>
+            </div>
+            <form id="Registration-form" action="{{ url_for('register_user') }}" method="POST">
+
+                <input type="email" id="email" name="email" placeholder="Email" required>
+                <input type="text" id="name" name="name" placeholder="Name" required>
+                <input type="text" id="surname" name="surname" placeholder="Surname" required>
+                <input type="password" id="password" name="password" placeholder="Password" required>
+                <input type="password" id="password_check" name="password_check" placeholder="Password Check" required>
+            
+                <label for="country" style="color: white;">Select a country:</label>
+                <select id="country" name="country" required>
+                    <!-- Add country options dynamically based on your data -->
+                    <option value="country1">Country 1</option>
+                    <option value="country2">Country 2</option>
+                    <!-- Add more options as needed -->
+                </select>
+            
+                <label for="city" style="color: white;">Select a city:</label>
+                <select id="city" name="city" required>
+                    <!-- Add city options dynamically based on your data -->
+                    <option value="city1">City 1</option>
+                    <option value="city2">City 2</option>
+                    <!-- Add more options as needed -->
+                </select>
+            
+                <button type="submit" id="registerButton">Register</button>
+            
+            </form>
+        </div>
+    </div>
+</body>
+</html>
