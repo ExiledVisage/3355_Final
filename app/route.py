@@ -46,7 +46,8 @@ def login():
 @app.route('/logout')
 def logout():
     session.clear()
-    return render_template('index.html')
+    office_names = get_office_names()
+    return render_template('index.html',office_names=office_names)
 
 
 @app.route('/login_user', methods=['GET', 'POST'])
