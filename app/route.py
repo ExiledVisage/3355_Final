@@ -34,14 +34,20 @@ def home():
     drop_office_table()
     connectionOffice()
     insert_offices()
-    #office_names = get_office_names()     
+    office_names = get_office_names()     
     #insert_vehicles()  
-    #office_table_create_and_update()    
-    return render_template('index.html')
+    office_table_create_and_update()    
+    return render_template('index.html',office_names=office_names)
 
 @app.route('/login')
 def login():
     return render_template('login.html')
+
+@app.route('/logout')
+def logout():
+    session.clear()
+    return render_template('index.html')
+
 
 @app.route('/login_user', methods=['GET', 'POST'])
 def login_user():

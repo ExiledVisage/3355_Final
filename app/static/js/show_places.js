@@ -30,6 +30,48 @@ if (navigator.geolocation) {
   console.error('Geolocation is not supported by this browser');
 }
 
+document.addEventListener('DOMContentLoaded', function () {
+  const form = document.getElementById('rentForm'); // Replace 'rentForm' with the actual ID of your form
+  form.addEventListener('submit', function (event) {
+    // Call your validation function before submitting the form
+    if (!validateForm() || !calculateRentDays()) {
+      event.preventDefault(); // Prevent the form from submitting if validation fails
+    }
+  });
+});
+
+function validateForm() {
+  // Retrieve form inputs
+  var pickupOffice = document.getElementById('pickupOffice').value;
+  var pickupDate = document.getElementById('pickupDate').value;
+  var pickupTime = document.getElementById('pickupTime').value;
+  var returnOffice = document.getElementById('returnOffice').value;
+  var returnDate = document.getElementById('returnDate').value;
+  var returnTime = document.getElementById('returnTime').value;
+
+  // Perform validation
+  if (pickupOffice === '' || pickupDate === '' || pickupTime === '' || returnOffice === '' || returnDate === '' || returnTime === '') {
+      // Display an alert or error message
+      alert('Please fill out all fields before submitting the form.');
+      return false; // Prevent the form from submitting
+  }
+
+  // Additional validation logic can be added here
+
+  return true; // Allow the form to submit
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+  const form = document.getElementById('rentForm'); // Replace 'rentForm' with the actual ID of your form
+  form.addEventListener('submit', function (event) {
+    // Call your validation function before submitting the form
+    if (!validateForm() || !calculateRentDays()) {
+      event.preventDefault(); // Prevent the form from submitting if validation fails
+    }
+  });
+});
+
+
   // Example code to display map and markers
 function displayMap(userLocation,offices) 
 {

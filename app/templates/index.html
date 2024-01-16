@@ -16,6 +16,7 @@
             <div class="company-name">AVIS</div>
             <div class="Login_header"> 
                 {% if 'user_name' in session %}
+                    <div class="logout-text"><a href="/logout">Logout</a></div>
                     <div class="login-text">Hello {{ session['user_name'] }}!</div>
                 {% else %}
                     <div class="login-text"><a href="/login">Üye girişi</a></div>
@@ -33,7 +34,7 @@
         </div> 
 
         <div class="Rent_Car_header">
-            <form  action="{{ url_for('filter_cars') }}" method="POST" onsubmit="return calculateRentDays()" style=" margin-left: 20px;">
+            <form  id="rentForm" action="{{ url_for('filter_cars') }}" method="POST" onsubmit="return calculateRentDays()" style=" margin-left: 20px;">
 
               <label for="pickupOffice" class="label-box">Teslim <br> Alım <br> Ofisi:</label>
 
